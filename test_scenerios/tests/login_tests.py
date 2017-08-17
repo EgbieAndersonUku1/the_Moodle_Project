@@ -5,14 +5,17 @@ from src import driver
 from src import moodle_framework
 from time import sleep
 
+# Written using Python PyCharm
+# Uses Pytest to test login test cases
+
 class TestCourseCreatorLogin(TestCase):
     """Test cases for the login a user """
     @classmethod
     def setUpClass(cls):
-        url = 'url to moodle'
+        url = 'url moodle here'
         cls.moodle = Runner(url)
-        cls._valid_username = '' #course creator username'
-        cls._valid_password = '' #course creator password'
+        cls._valid_username = 'course creator username here'
+        cls._valid_password = 'course creator password here'
 
     def test_Given_that_a_user_logs_in_a_with_null_username_and_password__Should_show_error_msg_and_stay_on_login_page(cls):
         cls._login_helper()

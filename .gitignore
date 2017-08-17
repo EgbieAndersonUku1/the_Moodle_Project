@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+.idea/
+*/temp/*
+*.xml
+*.log*
+*.db
+*tests/.cache/v/cache/lastfailed
