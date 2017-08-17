@@ -5,7 +5,6 @@ from src import driver
 from src import moodle_framework
 from time import sleep
 
-
 class TestCourseCreatorLogin(TestCase):
     """Test cases for the login a user """
     @classmethod
