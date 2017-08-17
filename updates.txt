@@ -1,0 +1,27 @@
+
+Changes to the application:
+
+1) Refactored the application so the framework no longer displays all the available roles for a user e.g course-creators,
+   non-editing teachers, students or guests when the dot extension is hit on the User object.
+   Instead, the framework detects the particular role assigned to the user through their logging credentials then
+   displays only that role along with the pages and options they can use.
+
+   * For example, if the username and password are blank then the framework only displays the Guest option/pages
+     that only a guest can access and nothing else.
+
+   This is also done for either a course creator or Non-editing teacher
+
+   example (1):
+
+   m = Runner('http://some_url_to_moodle')
+
+   To Login in as Guest leave the username and password blank by hitting "<ENTER>"
+   [+] Enter your moodle username(with quotations e.g 'username') : 'username_for_course_creator'
+   [+] Enter your moodle password(with quotations e.g 'password') : 'password_for_course_creator'
+
+   # Application detects that user is a course-creator and displays only the options available to a course-creator
+   >>> m.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Login.UserLogin.login()
+   >>> m.Users.CourseCreator.Browser.GoTo.Page.LoginPage.Logout.log_out()
+
+
+
