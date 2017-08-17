@@ -2,7 +2,6 @@ from unittest import TestCase
 from src import driver
 from src.main import Runner
 from src import driver
-from src import moodle_framework
 from time import sleep
 
 # Written using Python PyCharm
@@ -16,6 +15,11 @@ class TestCourseCreatorLogin(TestCase):
         cls.moodle = Runner(url)
         cls._valid_username = 'course creator username here'
         cls._valid_password = 'course creator password here'
+
+    @classmethod
+    def tearDownClass(cls):
+        sleep(2)
+        driver.close()
 
     def test_Given_that_a_user_logs_in_a_with_null_username_and_password__Should_show_error_msg_and_stay_on_login_page(cls):
         cls._login_helper()
