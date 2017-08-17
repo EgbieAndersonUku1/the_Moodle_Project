@@ -7,7 +7,7 @@ from time import sleep
 # Written using Python PyCharm
 # Uses Pytest to test login test cases
 
-class TestCourseCreatorLogin(TestCase):
+class TestLogin(TestCase):
     """Test cases for the login a user """
     @classmethod
     def setUpClass(cls):
