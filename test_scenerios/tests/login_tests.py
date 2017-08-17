@@ -11,7 +11,7 @@ class TestCourseCreatorLogin(TestCase):
     """Test cases for the login a user """
     @classmethod
     def setUpClass(cls):
-        url = 'url moodle here'
+        url = 'url to moodle'
         cls.moodle = Runner(url)
         cls._valid_username = 'course creator username here'
         cls._valid_password = 'course creator password here'
@@ -38,15 +38,20 @@ class TestCourseCreatorLogin(TestCase):
         cls._login_helper(cls._valid_username.upper(), cls._valid_password, 'Novus Community Management System')
         cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Logout.log_out()
 
-    #def test_guest_hits_the_guest_login_button__Should_log_user_in_as_guest_and_display_home_page(cls):
-    #    pass
+    def test_guest_hits_the_guest_login_button__Should_log_user_in_as_guest_and_display_home_page(cls):
+        cls._login_helper(text='Novus Community Management System', guest=True)
+        cls.moodle.Users.Guest.Browser.Pages.GoTo.LoginPage.Logout.log_out()
 
-    def _login_helper(cls, username='', password='', text='Log in to the site'):
+    def _login_helper(cls, username='', password='', text='Log in to the site', guest=False):
         """A thin wrapper function that adds additional help to test methods"""
-        cls.moodle.username = username
-        cls.moodle.password = password
+
+        cls.moodle.username, cls.moodle.password = username, password
         cls.moodle.initalise()
-        cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Login.UserLogin.login()
+
+        if not guest:
+           cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Login.UserLogin.login()
+        else:
+            cls.moodle.Users.Guest.Browser.Pages.GoTo.LoginPage.Login.LoginAs.guest()
         cls.assertEquals(driver.get_web_page_title(), text)
 
 
