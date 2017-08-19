@@ -27,14 +27,14 @@ class TestLogin(TestCase):
     def test_Given_that_a_user_logs_in_with_a_valid_username_and_null_password__Should_show_error_msg_and_stay_on_login_page(cls):
         cls._login_helper(cls._valid_username)
 
-    def test_Given_that_a_user_logs_in_with_alphanumeric_chars__Should_display_error_message_and_stay_on_login_page(cls):
+    def test_Given_that_a_user_logs_in_with_alphanumeric_chars__Should_show_error_message_and_stay_on_login_page(cls):
         cls._login_helper('1234', '1234')
 
-    def test_Given_that_a_user_logs_in_with_a_valid_username_and_a_valid_password__Should_display_home_page(cls):
+    def test_Given_that_a_user_logs_in_with_a_valid_username_and_a_valid_password__Should_login_user_and_display_home_page(cls):
         cls._login_helper(cls._valid_username, cls._valid_password, 'Novus Community Management System')
         cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Logout.log_out()
 
-    def test_user_logs_in_with_not_case_sensitive_username_and_correct_password__expected_result_is_user_should_login(cls):
+    def test_user_logs_in_with_not_case_sensitive_username_and_correct_password__Should_login_user_and_display_home_page(cls):
         cls._login_helper(cls._valid_username.upper(), cls._valid_password, 'Novus Community Management System')
         cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Logout.log_out()
 
