@@ -11,7 +11,7 @@ __author__ = 'Egbie Uku'
 class Users(object):
     """The Users class contains the roles of the users available on the system.
        The class must not be accessed directly and should only be accessed
-       from the Runner located in the main file.
+       from the Moodle located in the main file.
     """
     def __init__(self,  browser):
 

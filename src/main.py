@@ -32,8 +32,6 @@
 #  [0] Implement test cases for the above methods
 #  [1] Implement test cases so that it can be used using NUnit in Visual Studios
 #
-# Works in IDLE 2.x
-# When run in IDLE 3.x causes an import error
 #
 # Dependencies
 #   [1] Included a geckodriver in the src file. This will enable the Firefox browser to be controlled.
@@ -53,7 +51,7 @@ from src.users.users import Users as _Users
 
 
 
-class Runner(object):
+class Moodle(object):
     """The framework contains everything needed to run the application"""
 
     def __init__(self, url, username='', password='', browser='Firefox'):
@@ -68,4 +66,8 @@ class Runner(object):
         _moodle_framework.username = self.username
         _moodle_framework.password = self.password
         _moodle_framework.store_login_details()
+
+    def get_page_title(self):
+        return _moodle_framework.get_page_title(_driver)
+
 

@@ -18,7 +18,7 @@ class Create(object):
     """Allows a course or course content to be created"""
     def __init__(self):
         self.course = self._Course()
-        self.quiz = self._add
+        self.quiz = self._Quiz()
         self.badge = self._Badge()
 
     class _Badge(object):

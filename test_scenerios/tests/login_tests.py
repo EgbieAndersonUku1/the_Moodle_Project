@@ -1,20 +1,24 @@
 from unittest import TestCase
 from src import driver
-from src.main import Runner
+from src.main import Moodle
 from src import driver
 from time import sleep
 
 # Written using Python PyCharm
 # Uses Pytest to test login test cases
+# TODO
+# Works perfectly on Linux but on Window opens an insecure password page tab -> Fix that.
+# Fix the assert statement for logout because if a test fails then all tests that follow will fail because
+# the application logout line is not executed.
 
 class TestLogin(TestCase):
     """Test cases for the login a user """
     @classmethod
     def setUpClass(cls):
         url = 'url to moodle'
-        cls.moodle = Runner(url)
-        cls._valid_username = 'course creator username here'
-        cls._valid_password = 'course creator password here'
+        cls.moodle = Moodle(url)
+        cls._valid_username = 'course creator username'
+        cls._valid_password = 'course creator password'
 
     @classmethod
     def tearDownClass(cls):
@@ -52,4 +56,4 @@ class TestLogin(TestCase):
            cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Login.UserLogin.login()
         else:
             cls.moodle.Users.Guest.Browser.Pages.GoTo.LoginPage.Login.LoginAs.guest()
-        cls.assertEquals(driver.get_web_page_title(), text) 
+        cls.assertEquals(text, cls.moodle.get_page_title())

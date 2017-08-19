@@ -13,7 +13,7 @@ Changes to the application:
 
    example (1):
 
-   m = Runner('http://some_url_to_moodle')
+   m = Moodle('http://some_url_to_moodle')
 
    To Login in as Guest leave the username and password blank by hitting "<ENTER>"
    [+] Enter your moodle username(with quotations e.g 'username') : 'username_for_course_creator'

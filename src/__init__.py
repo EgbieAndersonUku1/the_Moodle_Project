@@ -6,10 +6,8 @@ from moodle_package.page_object_models.coursesPages.courses_and_mgmt_page import
 from moodle_package.page_object_models.homePage.home_page import HomePageModel
 from moodle_package.page_object_models.coursesPages.my_course import MyCoursePageModel
 from src.framework.framework import MoodleFrameWork
-
-
 from moodle_package.selenium_driver.driver import Driver
-from src.framework.framework import MoodleFrameWork
+
 
 driver = Driver()
 moodle_framework = MoodleFrameWork()

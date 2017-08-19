@@ -11,19 +11,6 @@ class MoodleFrameWork(object):
         self._password = ''
         self._cache = Cache()
 
-    class _LoginDetails(object):
-        def __init__(self, username, password):
-            self._username = username
-            self._password = password
-
-        @property
-        def username(self):
-            return self._username
-
-        @property
-        def password(self):
-            return self._password
-
     @property
     def username(self):
         return self._username
@@ -42,7 +29,7 @@ class MoodleFrameWork(object):
 
     def store_login_details(self):
         """Stores the user login details in the framework"""
-        login_details = self._LoginDetails(self._username, self._password)
+        login_details = _LoginDetails(self._username, self._password)
         self._cache.store('role', get_user_defined_role(self._username.split('.')[0]))
         self._cache.store('login_details', login_details)
 
@@ -76,4 +63,24 @@ class MoodleFrameWork(object):
 
     def get_user_role(self):
         """Returns the role the user is assigned to"""
-        return self._cache.get_from_cache('role')
+
+    def get_page_title(self, driver):
+        """Returns the title of the page"""
+        return driver.get_web_page_title()
+
+
+
+class _LoginDetails(object):
+    """A storage class"""
+
+    def __init__(self, username, password):
+        self._username = username
+        self._password = password
+
+    @property
+    def username(self):
+        return self._username
+
+    @property
+    def password(self):
+        return self._password
