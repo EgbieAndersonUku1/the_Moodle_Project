@@ -52,7 +52,4 @@ class TestLogin(TestCase):
            cls.moodle.Users.CourseCreator.Browser.Pages.GoTo.LoginPage.Login.UserLogin.login()
         else:
             cls.moodle.Users.Guest.Browser.Pages.GoTo.LoginPage.Login.LoginAs.guest()
-        cls.assertEquals(driver.get_web_page_title(), text)
-
-
-
+        cls.assertEquals(driver.get_web_page_title(), text) 
