@@ -16,7 +16,6 @@ class LogIn(object):
         self.Logged = self._LoggedInAs()
 
     class _Login(object):
-
         def login(self):
             """Logs the user into the application"""
 

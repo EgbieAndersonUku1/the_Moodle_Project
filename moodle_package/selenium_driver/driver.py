@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
+from src.common.utils.errors.errors import InternetConnectDownError
 
 __author__ = 'Egbie Uku'
 
@@ -36,7 +37,7 @@ class Driver(object):
         try:
             self._driver.get(url)
         except:
-            return 'FAILED_TO_CONNECT_CHECK_INTERNET_CONNECTION'
+            raise InternetConnectDownError('Could not connect to URL "{}" internet connect is down.'.format(url))
 
     def back(self):
         """Allows the users to navigate backwards within a web page."""

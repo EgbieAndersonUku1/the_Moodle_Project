@@ -6,7 +6,7 @@ from src.common.utils.webUI.field_writer.writer import write_to_field, write_to_
 __author__ = 'Egbie Uku'
 
 
-class UpdateFields(object):
+class CourseFields(object):
     """Updates the fields in the Moodle class must not be called or accessed directly."""
     def __init__(self, course_class):
         self._course = course_class()
@@ -39,19 +39,19 @@ class UpdateFields(object):
         """Fills in the course name"""
 
         xpath = AddCourseDetailsModel.get_fullname_field_xpath()
-        UpdateFields._write_to_field(xpath, self._course.get_course_name())
+        CourseFields._write_to_field(xpath, self._course.get_course_name())
 
     def fill_in_course_short_name(self):
         """Fills in the short name associated with the course"""
 
         xpath = AddCourseDetailsModel.get_short_name_field_xpath()
-        UpdateFields._write_to_field(xpath, self._course.get_course_short_name())
+        CourseFields._write_to_field(xpath, self._course.get_course_short_name())
 
     def fill_in_course_id(self):
         """Fills in the course ID"""
 
         xpath = AddCourseDetailsModel.get_course_id_field_xpath()
-        UpdateFields._write_to_field(xpath, self._course.get_course_id())
+        CourseFields._write_to_field(xpath, self._course.get_course_id())
 
     def select_category_to_save_course_to(self):
         """Select the category to save the course in."""
@@ -64,7 +64,7 @@ class UpdateFields(object):
         """Fills in the course summary"""
 
         xpath = AddCourseDetailsModel.get_synopsis_field_xpath()
-        UpdateFields._write_to_text_box_field(xpath, self._course.get_course_summary())
+        CourseFields._write_to_text_box_field(xpath, self._course.get_course_summary())
 
     def set_course_completion_tracking(self):
         """Allows the course completion tracking to be set"""
