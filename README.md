@@ -6,7 +6,7 @@ Using the Better Code Hub at https://bettercodehub.com I ran my entire price_ale
 
 I lost one mark in **Automate test** compliance
 
-**Project Moodle: pending**
+## Project Moodle: 
 
 **What is moodle?**
 
